@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Focus Timer — Pomodoro</title>
-
 <link rel="stylesheet" href="style.css">
 </head>
 <body data-theme="light">
@@ -16,10 +15,7 @@
     <div class="header-actions">
       <button class="icon-btn" id="themeBtn" title="Toggle dark mode">🌙</button>
       <button class="icon-btn" id="settingsBtn" title="Settings">⚙️</button>
-      
-      <!-- 🎨 ADDED GRADIENT BUTTON -->
       <button class="icon-btn" id="gradientBtn" title="Change gradient">🎨</button>
-
     </div>
   </div>
 
@@ -86,7 +82,6 @@
       <div class="panel-title">Settings</div>
       <button class="close-btn" id="closeSettings">✕</button>
     </div>
-
     <div class="setting-group">
       <div class="setting-label">⏱ Timer durations</div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
@@ -113,7 +108,6 @@
         </div>
       </div>
     </div>
-
     <div class="setting-group">
       <div class="setting-label">🔁 Pomodoros before long break</div>
       <div class="setting-row">
@@ -121,7 +115,6 @@
         <span class="setting-unit">sessions</span>
       </div>
     </div>
-
     <div class="setting-group">
       <div class="setting-label">🎛 Preferences</div>
       <div class="toggle-row">
@@ -145,7 +138,6 @@
         <button class="toggle" id="togAutoWork" data-key="autoWork"></button>
       </div>
     </div>
-
     <button class="save-btn" id="saveSettings">Save settings</button>
   </div>
 </div>
@@ -159,6 +151,85 @@
     <div class="modal-actions">
       <button class="modal-btn modal-btn-yes" id="modalYes">✓ Yes, done!</button>
       <button class="modal-btn modal-btn-no" id="modalNo">Not yet</button>
+    </div>
+  </div>
+</div>
+
+<!-- 🎮 BREAK GAME PANEL -->
+<div class="game-overlay" id="gameOverlay">
+  <div class="game-panel">
+    <div class="game-header">
+      <div class="game-header-left">
+        <span class="game-break-badge" id="gameBreakBadge">☕ Short Break</span>
+        <span class="game-timer-pill" id="gameTimerPill">05:00</span>
+      </div>
+      <button class="game-close-btn" id="gameCloseBtn">✕ Back to timer</button>
+    </div>
+
+    <!-- Game Picker -->
+    <div class="game-picker" id="gamePicker">
+      <div class="game-picker-title">🎮 Play during your break!</div>
+      <div class="game-picker-subtitle">Break ends automatically when time runs out</div>
+      <div class="game-grid">
+        <button class="game-card" data-game="snake">
+          <div class="game-card-icon">🐍</div>
+          <div class="game-card-name">Snake</div>
+          <div class="game-card-desc">Classic arcade — eat & grow</div>
+        </button>
+        <button class="game-card" data-game="tictactoe">
+          <div class="game-card-icon">❌</div>
+          <div class="game-card-name">Tic Tac Toe</div>
+          <div class="game-card-desc">Beat the AI — can you win?</div>
+        </button>
+        <button class="game-card" data-game="memory">
+          <div class="game-card-icon">🃏</div>
+          <div class="game-card-name">Memory Match</div>
+          <div class="game-card-desc">Find all the matching pairs</div>
+        </button>
+        <button class="game-card" data-game="typing">
+          <div class="game-card-icon">⌨️</div>
+          <div class="game-card-name">Speed Typing</div>
+          <div class="game-card-desc">Race against the clock</div>
+        </button>
+        <button class="game-card" data-game="2048">
+          <div class="game-card-icon">🔢</div>
+          <div class="game-card-name">2048</div>
+          <div class="game-card-desc">Slide tiles, reach 2048</div>
+        </button>
+        <button class="game-card" data-game="flappy">
+          <div class="game-card-icon">🐦</div>
+          <div class="game-card-name">Flappy Bird</div>
+          <div class="game-card-desc">Tap to fly through pipes</div>
+        </button>
+        <button class="game-card" data-game="wordle">
+          <div class="game-card-icon">📝</div>
+          <div class="game-card-name">Word Guess</div>
+          <div class="game-card-desc">Guess the 5-letter word</div>
+        </button>
+        <button class="game-card" data-game="breakout">
+          <div class="game-card-icon">🧱</div>
+          <div class="game-card-name">Breakout</div>
+          <div class="game-card-desc">Bounce & smash bricks</div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Active Game Area -->
+    <div class="game-area" id="gameArea" style="display:none">
+      <div class="game-area-header">
+        <button class="back-to-games-btn" id="backToGamesBtn">← Games</button>
+        <div class="game-area-title" id="gameAreaTitle"></div>
+        <div class="game-score-badge" id="gameScoreBadge">Score: 0</div>
+      </div>
+      <div class="game-canvas-wrap" id="gameCanvasWrap"></div>
+    </div>
+
+    <!-- Break Over Screen -->
+    <div class="break-over-screen" id="breakOverScreen" style="display:none">
+      <div class="break-over-icon">⏰</div>
+      <div class="break-over-title">Break's over!</div>
+      <div class="break-over-sub">Hope you had fun. Time to focus! 💪</div>
+      <button class="break-over-btn" id="breakOverBtn">Start Work Session ▶</button>
     </div>
   </div>
 </div>
